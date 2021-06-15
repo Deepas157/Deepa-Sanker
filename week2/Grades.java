@@ -1,0 +1,39 @@
+package week2;
+
+import java.util.Scanner;
+
+public class Grades {
+	public static void main(String[] args) {
+		double grade;
+		double sumOfGrades;
+		int numStudents;
+		int numPass;
+		int numFail;
+		Scanner scan=new Scanner(System.in);
+		System.out.println("\n grade processing program \n");
+		sumOfGrades=0;
+		numStudents=0;
+		numPass=0;
+		numFail=0;
+		System.out.println("Enter the First student's grade:  ");
+		grade=scan.nextDouble();
+		while(grade>=0) {
+			sumOfGrades=sumOfGrades+grade;
+			numStudents=numStudents+1;
+			if(grade<60)
+				numFail=numFail+1;
+			else
+				numPass=numPass+1;
+			System.out.println("Enter the next grade (a negative to quit):");
+			grade=scan.nextDouble();
+		}
+		if(numStudents>0) {
+			System.out.println("grade Summary:");
+			System.out.println("class Average:"+sumOfGrades/numStudents);
+			System.out.println("Number of Passing Grades:"+numPass);
+			System.out.println("Number of Failing grades:"+numFail);
+		}
+		else
+			System.out.println("No grades processed.");
+	}
+}
